@@ -1,6 +1,5 @@
 from random import *
 ##1
-from numpy.random.mtrand import randint
 print("안녕하세요 \\\n기말고사 대체 레포트\n제출합니다.")
 
 ##2
