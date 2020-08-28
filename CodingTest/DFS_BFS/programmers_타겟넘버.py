@@ -11,3 +11,4 @@ for number in numbers:
     up=down
 print(up.count(target))
 #https://eda-ai-lab.tistory.com/475
+

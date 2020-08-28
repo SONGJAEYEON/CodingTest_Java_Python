@@ -1,21 +1,27 @@
-def solution(bridge_length, weight, truck_weights):
-    count=1
-    group=[]
-    plus=truck_weights[0]
-    if len(truck_weights)==1:
-        group=[1]
+truck_weights=[10,10,10,10,10,10,10,10,10,10]
+#[4,7,5,5,2,2,2,2,2,2]
+#[7,4,5,6]
+weight=100
+bridge_length=100
+time=0
+q=[0] * bridge_length
+s=0
+i=0
+q = [0]*bridge_length # queue
+while q:
+    time+=1 #요거때무네
+    s-=q.pop(0)
+    if i<len(truck_weights):
+        if truck_weights[i]+s<=weight:
+            s+=truck_weights[i]
+            q.append(truck_weights[i])
+            i+=1
+        else:
+            q.append(0)
     else:
-        for i in range(1,len(truck_weights)):
-            if plus+truck_weights[i]<=weight:
-                count+=1
-                plus+=truck_weights[i]
-            else:
-                group.append(count)
-                plus=truck_weights[i]
-                count=1
-            if i==len(truck_weights)-1:
-                group.append(count)
-    answer=1
-    answer+=(sum(group)-len(group))
-    answer+=(bridge_length*len(group))
-    return answer
+        time+=bridge_length-1 #요기서 그냥 빼는거같으넫./
+        break
+print(time)
+
+    
+    
