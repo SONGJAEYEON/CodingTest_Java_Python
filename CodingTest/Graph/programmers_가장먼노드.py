@@ -15,4 +15,40 @@ vertex=[[3, 6], [4, 3], [3, 2], [1, 3], [1, 2], [2, 4], [5, 2]]
 
 #1. 딕셔너리에 노드별 연결정보를 넣는다
 #2. 효율성을 위해 deque를 사용한다
-#
+#3. deque에 노드번호,깊이 정보를 한번에 삽입한다
+#4. chk배열은 -1로 초기화하여 준비하고 인접노드를 탐색할 땐 한번 deque에 넣은 노드는 0으로 체크한다
+#(0으로 체크를 안해주면 이미 탐색한 노드를 재탐색함)
+
+#5. 큐에서 꺼내올때 chk[노드번호]=깊이 로 넣어준다
+#6. 마지막으로 chk배열에서 최댓값을 카운트 해주면 된다.
+from collections import deque
+route={}
+for e1, e2 in vertex:
+    route.setdefault(e1, []).append(e2)
+    route.setdefault(e2,[]).append(e1) #양방향이라서 이렇게햇구남,,, 
+print(route)
+# route={}
+# for e1,e2 in vertex:
+#     if e1 in route:
+#         route[e1].append(e2)
+#     else:
+#         route[e1]=[e2]
+# print(route)
+print(vertex)
+q=deque([[1,0]])#첫번째 시작노드는 1이고 깊이는 0이기 때문에 이렇게 초기화함
+# q=[[1,0]]
+chk=[-1]*(n+1)
+while q:
+    idx,depth=q.popleft()
+    chk[idx]=depth
+    for i in route[idx]:
+        if chk[i]==-1:
+            chk[i]=0
+            q.append([i,depth+1])
+            print(chk)
+            print(q)
+            print()
+    depth+=1
+print(chk)
+print(chk.count(max(chk)))
+    
