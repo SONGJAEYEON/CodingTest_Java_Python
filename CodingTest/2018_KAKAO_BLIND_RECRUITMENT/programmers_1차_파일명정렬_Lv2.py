@@ -1,3 +1,19 @@
+#정규표현식을 공부하자!!
+
+def solution(files):
+    import re
+    #1. 정규식을 사용해서 숫자를 골라낸다.
+    temp=[re.split(r"([0-9]+)",s) for s in files]
+    print(temp)
+    
+    #2. 숫자는 숫자대로 글자는 글자대로 해서정렬한다.
+    sort=sorted(temp,key=lambda x:(x[0].lower(),int(x[1])))
+    print(sort)
+    
+    #3. 문자열형태로 다시 합쳐서 출력
+    return ["".join(s) for s in sort]
+
+
 # 
 # ###########1번
 # # 예1    "...!@BaT#*..y.abcdefghijklm"    "bat.y.abcdefghi"

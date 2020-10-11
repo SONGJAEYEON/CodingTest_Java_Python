@@ -10,28 +10,27 @@
 
 N=2
 number=11
-dp = [[] for _ in range(9)]
-answer = -1
-## 최솟값이 8보다 큰 경우는 고려하지 않는다. 오오,,, 이렇게 생각을 할 수도 있구나,,, 대다네,,,, 와우,,, 
-for i in range(1, 9):
-    ## 숫자를 이어붙이는 경우(5, 55, 555...)
-    dp[i].append(int(str(N)*i))
-    for j in range(1, i):
-        for x1 in dp[j] :
-            for x2 in dp[i - j] :
-                ## 각 경우에 대해 사칙연산을 체크
-                dp[i].append(x1 + x2)
-                dp[i].append(x1 - x2)
-                dp[i].append(x1 * x2)
-                ## 나눗셈에서 분모가 0이면 연산이 안되므로
-                if x2 != 0 :
-                    dp[i].append(x1 // x2)
-    ## 연산을 마친후 정답을 체크
-    if number in dp[i] : 
-        answer = i
-        break
-print(dp)
-print(answer)
-
-# 하 시부랄 배고픔,,,선생님 배고파여,,,마미 아임 헝그리,,, 7시~9시~12시
-        
+def solution(N, number):
+    dp = [[] for _ in range(9)]
+    answer = -1
+    ## 최솟값이 8보다 큰 경우는 고려하지 않는다. 오오,,, 이렇게 생각을 할 수도 있구나,,, 대다네,,,, 와우,,, 
+    for i in range(1, 9):
+        ## 숫자를 이어붙이는 경우(5, 55, 555...)
+        dp[i].append(int(str(N)*i))
+        for j in range(1, i):
+            for x1 in dp[j] :
+                for x2 in dp[i - j] :
+                    ## 각 경우에 대해 사칙연산을 체크
+                    dp[i].append(x1 + x2)
+                    dp[i].append(x1 - x2)
+                    dp[i].append(x1 * x2)
+                    ## 나눗셈에서 분모가 0이면 연산이 안되므로
+                    if x2 != 0 :
+                        dp[i].append(x1 // x2)
+        ## 연산을 마친후 정답을 체크
+        if number in dp[i] : 
+            answer = i
+            break
+    print(dp)
+    return answer
+print(solution(N, number))

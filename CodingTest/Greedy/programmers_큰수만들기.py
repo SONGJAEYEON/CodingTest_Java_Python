@@ -25,3 +25,19 @@ for i, num in enumerate(number):
 # k가 0 이면 빈 리스트가 되기 때문에 if를 이용해서 조건을 걸어준다.
 answer = ''.join(collected)
 print(answer)
+
+
+collected=[]
+number="4177252841"
+k=4
+
+for i,num in enumerate(number):
+    while collected and collected[-1]<num and k>0:
+        collected.pop()
+        k-=1
+    if k==0:
+        collected+=list(number[i:])
+        break
+    collected.append(num)
+answer="".join(collected)
+print(answer)
