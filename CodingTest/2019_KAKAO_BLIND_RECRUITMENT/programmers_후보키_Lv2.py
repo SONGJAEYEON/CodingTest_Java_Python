@@ -49,7 +49,7 @@ if len(relation) > 0:
     for stdMinElem in uniqeIndex:
         for idx, compMinElem in enumerate(uniqeIndex):
             # 부분집합이면서 자기 자신이 아니라면 상위집합을 삭제 대상에 추가
-            if stdMinElem.issubset(compMinElem) and stdMinElem != compMinElem:
+            if stdMinElem.issubset(compMinElem) and stdMinElemindex compMinElem:
                 delSet.add(uniqeIndex.index(compMinElem))
     # 유일성 - 최소성 위배
     answer = len(uniqeIndex)-len(delSet)
@@ -76,8 +76,8 @@ print(answer)
 # #         print(chk_arr)
 #         if len(chk_arr)==len(set(chk_arr)):
 #             for remove_idx in case:
-#                 idxOfAttr.remove(remove_idx)
-#             answer+=1
+#   index           idxOfAttr.remove(remove_idx)
+#          indexanswer+=1
 # #     print(idxOfAttr)
 # #     print(answer)  
 #     sizeOfKey+=1      

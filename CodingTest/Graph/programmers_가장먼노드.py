@@ -52,23 +52,27 @@
 # print(chk)
 # print(chk.count(max(chk)))
 
+# n=6
+# vertex=[[3, 6], [4, 3], [3, 2], [1, 3], [1, 2], [2, 4], [5, 2]]
+# def solution(n, vertex):
+#     node={}
+#     for v1,v2 in vertex:
+#         node[v1]=node.get(v1,[])+[v2]
+#         node[v2]=node.get(v2,[])+[v1] #간선이 양방향이기 때문에 이렇게 해서 딕셔너리에 저장하자!!
+#     distance={i: float('inf') if i!=1 else 0 for i in range(1,n+1)}
+#     from collections import deque
+#     queue = deque([1]) #1에서부터 거리를 찾고있으니까 1을 출발점으로 고고!!
+#     while queue:
+#         nowPosition=queue.popleft()
+#         for nextPosition in node[nowPosition]:
+#             if distance[nextPosition]>distance[nowPosition]+1:
+#                 distance[nextPosition]=distance[nowPosition]+1
+#                 queue.append(nextPosition)
+#     answerList=list(distance.values())
+#     return answerList.count(max(answerList))
+#     
+# print(solution(n, vertex))
+
+
 n=6
 vertex=[[3, 6], [4, 3], [3, 2], [1, 3], [1, 2], [2, 4], [5, 2]]
-def solution(n, vertex):
-    node={}
-    for v1,v2 in vertex:
-        node[v1]=node.get(v1,[])+[v2]
-        node[v2]=node.get(v2,[])+[v1] #간선이 양방향이기 때문에 이렇게 해서 딕셔너리에 저장하자!!
-    distance={i: float('inf') if i!=1 else 0 for i in range(1,n+1)}
-    from collections import deque
-    queue = deque([1]) #1에서부터 거리를 찾고있으니까 1을 출발점으로 고고!!
-    while queue:
-        nowPosition=queue.popleft()
-        for nextPosition in node[nowPosition]:
-            if distance[nextPosition]>distance[nowPosition]+1:
-                distance[nextPosition]=distance[nowPosition]+1
-                queue.append(nextPosition)
-    answerList=list(distance.values())
-    return answerList.count(max(answerList))
-    
-print(solution(n, vertex))

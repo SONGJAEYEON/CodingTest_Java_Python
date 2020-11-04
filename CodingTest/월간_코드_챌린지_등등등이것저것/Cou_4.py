@@ -36,7 +36,6 @@ roads=[["SEOUL","DAEJEON"],
  
 #두 노드간 경로탐색
  
- # 하 시발,,, nhn자바로 하네? 나 파이썬으로 코테준비하는데?! 시발?! 
 node={}
 for v1,v2 in roads:
     node[v1]=node.get(v1, [])+[v2]

@@ -14,7 +14,19 @@
 
 
 
-
+# A=
+# #[3,2,-2,5,-3]
+# 
+# answer=0
+# for a in A:
+#     if (-1*a in A) and answer<=a:
+#         answer=a
+# print(a)
+#         
                    
 
-                
+N=6
+NList=[-i for i in range(N-1)]
+print(NList)
+NList.append(abs(sum(NList)))
+print(NList)
